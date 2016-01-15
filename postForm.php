@@ -1,4 +1,6 @@
-<?php header("Content-Type:text/html;charset=utf-8");
+<?php
+  session_start();
+  header("Content-Type:text/html;charset=utf-8");
 ?>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -10,7 +12,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 <?php
-  $isLogin = $_COOKIE['isLogin'];
+  $isLogin = $_SESSION['isLogin'];
   if($isLogin != 1){
 ?>
 <h1>로그인 하기</h1>
@@ -26,7 +28,7 @@
 </form>
 <?php
  }else{
-   $name = $_COOKIE['name'];
+   $name = $_SESSION['name'];
 ?>
 <?=$name?>님, 이미 로그인이 되어있습니다.<br>
 로그아웃 하시려면 아래 버튼을 누르세요.<br>
